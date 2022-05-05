@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace TechJobsOO
 {
     public class Job
@@ -40,6 +41,41 @@ namespace TechJobsOO
         public override int GetHashCode()
         {
             return HashCode.Combine(Id);
+        }
+
+        public override string ToString()
+        {
+            if (Name == "" && EmployerName.Value == "" && EmployerLocation.Value == "" && JobType.Value == "" && JobCoreCompetency.Value == "") 
+            {
+                return $"ID: {Id} \nOOPS! This job does not seem to exist.";
+            }
+
+            if (Name == "") 
+            {
+                Name = "Data not available";
+            }
+
+            if (EmployerName.Value == "")
+            {
+                EmployerName.Value = "Data not available";
+            }
+
+            if (EmployerLocation.Value == "")
+            {
+                EmployerLocation.Value = "Data not available";
+            }
+
+            if (JobType.Value == "")
+            {
+                JobType.Value = "Data not available";
+            }
+
+            if (JobCoreCompetency.Value == "")
+            {
+                JobCoreCompetency.Value = "Data not available";
+            }
+
+            return $"ID: {Id} \nName: {Name} \nEmployer: {EmployerName.Value} \nLocation: {EmployerLocation.Value} \nPosition Type: {JobType.Value} \nCore Competency: {JobCoreCompetency.Value} \n";
         }
     }
 }
